@@ -5,8 +5,7 @@ import { getCookie, setCookies } from 'cookies-next';
 import Head from 'next/head';
 import { MantineProvider, ColorScheme, ColorSchemeProvider } from '@mantine/core';
 import { NotificationsProvider } from '@mantine/notifications';
-import '@fontsource/open-sans';
-import '@fontsource/nunito-sans';
+import './../public/global.css';
 
 export default function App(props: AppProps & { colorScheme: ColorScheme }) {
   const { Component, pageProps } = props;
@@ -24,8 +23,21 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
         <title>jaldegren.dev</title>
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
         <link rel="shortcut icon" href="/favicon.svg" />
+        <link
+          rel="preload"
+          as="font"
+          href="/files/nunito-sans-latin-400-normal.woff2"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          as="font"
+          href="/files/open-sans-latin-500-normal.woff2"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
       </Head>
-
       <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
         <MantineProvider
           theme={{
