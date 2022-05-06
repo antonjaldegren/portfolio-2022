@@ -5,8 +5,8 @@ import { getCookie, setCookies } from 'cookies-next';
 import Head from 'next/head';
 import { MantineProvider, ColorScheme, ColorSchemeProvider } from '@mantine/core';
 import { NotificationsProvider } from '@mantine/notifications';
-// import '@fontsource/open-sans';
-// import '@fontsource/nunito-sans';
+import '@fontsource/open-sans';
+import '@fontsource/nunito-sans';
 
 export default function App(props: AppProps & { colorScheme: ColorScheme }) {
   const { Component, pageProps } = props;
@@ -45,7 +45,6 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
               ],
             },
             fontFamily: 'Nunito Sans, sans-serif',
-            fontFamilyMonospace: 'Monaco, Courier, monospace',
             headings: { fontFamily: 'Open Sans, sans-serif' },
           }}
           withGlobalStyles
@@ -60,6 +59,6 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
   );
 }
 
-App.getInitialProps = ({ ctx }: { ctx: GetServerSidePropsContext }) => ({
-  colorScheme: getCookie('mantine-color-scheme', ctx) || 'light',
-});
+// App.getInitialProps = ({ ctx }: { ctx: GetServerSidePropsContext }) => ({
+//   colorScheme: getCookie('mantine-color-scheme', ctx) || 'dark',
+// });
