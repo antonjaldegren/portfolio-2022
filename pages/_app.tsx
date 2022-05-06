@@ -5,6 +5,8 @@ import { getCookie, setCookies } from 'cookies-next';
 import Head from 'next/head';
 import { MantineProvider, ColorScheme, ColorSchemeProvider } from '@mantine/core';
 import { NotificationsProvider } from '@mantine/notifications';
+// import '@fontsource/open-sans';
+// import '@fontsource/nunito-sans';
 
 export default function App(props: AppProps & { colorScheme: ColorScheme }) {
   const { Component, pageProps } = props;
@@ -19,13 +21,36 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
   return (
     <>
       <Head>
-        <title>Mantine next example</title>
+        <title>jaldegren.dev</title>
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
         <link rel="shortcut icon" href="/favicon.svg" />
       </Head>
 
       <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
-        <MantineProvider theme={{ colorScheme }} withGlobalStyles withNormalizeCSS>
+        <MantineProvider
+          theme={{
+            colorScheme: colorScheme,
+            colors: {
+              dark: [
+                '#F8FAFC',
+                '#F1F5F9',
+                '#94A3B8',
+                '#919eb9',
+                '#7282a5',
+                '#58698b',
+                '#44526d',
+                '#1E293B',
+                '#1c2330',
+                '#0F172A',
+              ],
+            },
+            fontFamily: 'Nunito Sans, sans-serif',
+            fontFamilyMonospace: 'Monaco, Courier, monospace',
+            headings: { fontFamily: 'Open Sans, sans-serif' },
+          }}
+          withGlobalStyles
+          withNormalizeCSS
+        >
           <NotificationsProvider>
             <Component {...pageProps} />
           </NotificationsProvider>
