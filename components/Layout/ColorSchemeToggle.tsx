@@ -10,6 +10,8 @@ export default function ColorSchemeToggle(props: Props) {
 
   return (
     <ActionIcon
+      aria-label="Toggle color scheme"
+      title="Toggle color scheme"
       onClick={() => toggleColorScheme()}
       size={36}
       sx={(theme) => ({

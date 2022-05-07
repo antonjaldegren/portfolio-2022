@@ -20,8 +20,12 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
   return (
     <>
       <Head>
-        <title>jaldegren.dev</title>
+        <title>jaldegren.dev | Anton Jaldegren – Front End Developer</title>
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
+        <meta
+          name="description"
+          content="I'm a passionate problem solver specialized in building exceptional digital experiences for the web. My focus is Front End Development and I create accessible and responsive solutions using modern technologies."
+        />
         <link rel="shortcut icon" href="/favicon.svg" />
         <link
           rel="preload"
