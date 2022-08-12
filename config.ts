@@ -4,6 +4,7 @@ export const SECTIONS = ['home', 'about', 'projects', 'contact'];
 export const LINKS = {
   linkedin: 'https://www.linkedin.com/in/anton-jaldegren-3a79a6160/',
   github: 'https://github.com/antonjaldegren',
+  facebook: 'https://www.facebook.com/anton.jaldegren',
   email: 'mailto:anton@jaldegren.dev',
   resume: '',
 };

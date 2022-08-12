@@ -93,7 +93,7 @@ const Home = () => {
     <Box
       sx={{
         minHeight: `calc(100vh - ${theme.other.navbarHeight}px)`,
-        padding: `max(20vh, 5em) 0`,
+        padding: 'max(20vh, 5em) 0',
         [`@media (min-width: ${theme.breakpoints.md}px)`]: {
           maxWidth: '800px',
           margin: '0 10%',

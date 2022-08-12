@@ -28,6 +28,7 @@ const Email = () => {
           <Tooltip label={copied ? 'Copied!' : 'Copy'} withArrow position="right">
             <ActionIcon
               size={28}
+              aria-label="Copy email address"
               variant="light"
               color={copied ? 'green' : theme.primaryColor}
               onClick={copy}

@@ -35,6 +35,7 @@ const Project = ({ project, orientation }: Props) => {
           }}
         >
           <Image
+            alt={project.name}
             src={project.img_url}
             layout="fill"
             objectFit="cover"
