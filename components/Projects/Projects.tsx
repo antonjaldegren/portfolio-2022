@@ -12,7 +12,6 @@ function parseUrl(url: string) {
 
 const Projects = () => {
   const [repos, setRepos] = useState([]);
-  const theme = useMantineTheme();
 
   useEffect(() => {
     async function getRepos() {
@@ -22,12 +21,12 @@ const Projects = () => {
         const data = await response.json();
 
         const filteredData = data
-          .filter((repo) => repo.topics.includes('featured'))
-          .map((filteredRepo) => ({
+          .filter((repo: any) => repo.topics.includes('featured'))
+          .map((filteredRepo: any) => ({
             name: filteredRepo.name,
             company: 'Featured project',
             description: filteredRepo.description,
-            topics: filteredRepo.topics.filter((topic) => topic !== 'featured'),
+            topics: filteredRepo.topics.filter((topic: any) => topic !== 'featured'),
             img_url: filteredRepo.homepage
               ? `https://v1.screenshot.11ty.dev/${parseUrl(filteredRepo.homepage)}/large/`
               : '',
