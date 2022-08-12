@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Text, Title, Stack, Anchor, useMantineTheme } from '@mantine/core';
+import { Text, Title, Stack, Anchor } from '@mantine/core';
 import { PROJECTS, LINKS } from '../../config';
 import SectionWrapper from '../SectionWrapper';
 import Project from './Project';
@@ -48,7 +48,11 @@ const Projects = () => {
       </Title>
       <Stack mb="xl" spacing="xl">
         {PROJECTS.map((project, i) => (
-          <Project project={project} orientation={i % 2 === 0 ? 'left' : 'right'} />
+          <Project
+            key={project.name}
+            project={project}
+            orientation={i % 2 === 0 ? 'left' : 'right'}
+          />
         ))}
       </Stack>
       <Title order={3} mb="sm">
@@ -56,7 +60,7 @@ const Projects = () => {
       </Title>
       <Stack mb="xl" spacing="xl">
         {repos.map((repo, i) => (
-          <Project project={repo} orientation={i % 2 === 0 ? 'left' : 'right'} />
+          <Project key={`repo${i}`} project={repo} orientation={i % 2 === 0 ? 'left' : 'right'} />
         ))}
       </Stack>
       <Text align="center" m="xl">
