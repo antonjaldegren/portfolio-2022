@@ -7,12 +7,10 @@ interface Props {
   size?: MantineSize;
 }
 
-const ResumeButton = (props: Props) => {
-  return (
-    <Button leftIcon={<BsDownload />} variant="outline" {...props}>
-      Resume
-    </Button>
-  );
-};
+const ResumeButton = (props: Props) => (
+  <Button leftIcon={<BsDownload />} variant="outline" {...props}>
+    Resume
+  </Button>
+);
 
 export default ResumeButton;

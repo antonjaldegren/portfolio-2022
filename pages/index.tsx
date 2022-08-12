@@ -1,16 +1,27 @@
 import Layout from '../components/Layout/Layout';
 import Home from '../components/Home/Home';
-import Contact from '../components/Contact';
+import About from '../components/About';
+import Contact from '../components/Contact/Contact';
+import Projects from '../components/Projects/Projects';
+import Section from '../components/Section';
 
-const headerHeight: number = 65;
-
-export default function HomePage() {
-  return (
-    <>
-      <Layout headerHeight={headerHeight}>
-        <Home headerHeight={headerHeight} />
+const HomePage = () => (
+  <>
+    <Layout>
+      <Section id="home">
+        <Home />
+      </Section>
+      <Section id="about">
+        <About />
+      </Section>
+      <Section id="projects">
+        <Projects />
+      </Section>
+      <Section id="contact">
         <Contact />
-      </Layout>
-    </>
-  );
-}
+      </Section>
+    </Layout>
+  </>
+);
+
+export default HomePage;

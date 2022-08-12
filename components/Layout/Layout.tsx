@@ -1,5 +1,4 @@
 import React, { ReactNode, useState } from 'react';
-import Head from 'next/head';
 import {
   Text,
   Drawer,
@@ -10,8 +9,11 @@ import {
   Stack,
   ActionIcon,
   Center,
+  Container,
+  useMantineTheme,
 } from '@mantine/core';
-import { Menu2 } from 'tabler-icons-react';
+import { CgMenu } from 'react-icons/cg';
+import { BsGithub, BsLinkedin, BsFacebook } from 'react-icons/bs';
 import ResumeButton from './ResumeButton';
 import NavLinks from './NavLinks';
 import ScrollAffix from './ScrollAffix';
@@ -19,35 +21,36 @@ import ColorSchemeToggle from './ColorSchemeToggle';
 
 interface Props {
   children: ReactNode;
-  headerHeight: number;
-  title?: string;
 }
 
-const Layout = ({ children, headerHeight, title = 'jaldegren.dev' }: Props) => {
+const Layout = ({ children }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
+  const theme = useMantineTheme();
 
   return (
     <>
-      <Head>
-        <title>{title}</title>
-      </Head>
       <ScrollAffix />
       <Box
         component="header"
-        sx={(theme) => ({
+        sx={{
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          height: headerHeight,
-          backgroundColor:
-            theme.colorScheme === 'dark' ? `${theme.colors.dark[7]}F2` : `${theme.white}FFFF2`,
+          height: theme.other.navbarHeight,
+          background: `linear-gradient(
+            ${
+              theme.colorScheme === 'dark'
+                ? `${theme.colors.dark[7]}, ${theme.colors.dark[7]}F2`
+                : `${theme.white}, ${theme.white}F2`
+            })`,
           position: 'sticky',
           backdropFilter: 'blur(2px)',
           top: 0,
-        })}
+          zIndex: 999,
+        }}
         px="lg"
       >
-        <Text size="xl" weight="bold" color="blue">
+        <Text size="xl" weight="bold" color={theme.primaryColor}>
           jaldegren
           <Text component="span" inherit color="dimmed">
             .dev
@@ -67,8 +70,8 @@ const Layout = ({ children, headerHeight, title = 'jaldegren.dev' }: Props) => {
           </MediaQuery>
         </Group>
         <MediaQuery largerThan="md" styles={{ display: 'none' }}>
-          <ActionIcon variant="transparent" size="lg" color="blue">
-            <Menu2 size={32} onClick={() => setIsOpen(!isOpen)} aria-label="Open navigation" />
+          <ActionIcon variant="transparent" size="lg" color={theme.primaryColor}>
+            <CgMenu size={32} onClick={() => setIsOpen(!isOpen)} aria-label="Open navigation" />
           </ActionIcon>
         </MediaQuery>
       </Box>
@@ -78,10 +81,15 @@ const Layout = ({ children, headerHeight, title = 'jaldegren.dev' }: Props) => {
         position="right"
         size="xs"
         withCloseButton={false}
+        overlayColor={theme.colorScheme === 'dark' ? theme.colors.dark[9] : theme.colors.gray[2]}
+        overlayOpacity={0.55}
+        overlayBlur={2}
+        transitionDuration={theme.other.drawerTransitionDuration}
+        zIndex={9999}
       >
         <Stack>
           <Stack px="md" pt="xl">
-            <NavLinks onClick={() => setIsOpen(false)} />
+            <NavLinks onClick={() => setIsOpen(false)} delay />
           </Stack>
           <Divider />
           <Center>
@@ -89,16 +97,29 @@ const Layout = ({ children, headerHeight, title = 'jaldegren.dev' }: Props) => {
           </Center>
         </Stack>
       </Drawer>
-      <Box
-        p="lg"
+      <Container size="xl">{children}</Container>
+      <Center
         sx={{
-          minHeight: `calc(100vh - ${headerHeight}px)`,
+          height: '250px',
+          background: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0],
         }}
       >
-        {children}
-      </Box>
-      <Center>
-        <Text>hej</Text>
+        <Stack spacing="xl">
+          <Group m="auto">
+            <ActionIcon color={theme.primaryColor} size={48} title="GitHub">
+              <BsGithub size={32} />
+            </ActionIcon>
+            <ActionIcon color={theme.primaryColor} size={48} title="LinkedIn">
+              <BsLinkedin size={32} />
+            </ActionIcon>
+            <ActionIcon color={theme.primaryColor} size={48} title="Facebook">
+              <BsFacebook size={32} />
+            </ActionIcon>
+          </Group>
+          <Text size="sm" color="dimmed">
+            © {new Date().getFullYear()} Anton Jaldegren. All rights reserved.
+          </Text>
+        </Stack>
       </Center>
     </>
   );

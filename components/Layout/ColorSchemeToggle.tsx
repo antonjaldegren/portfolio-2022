@@ -1,5 +1,5 @@
-import { ActionIcon, useMantineColorScheme } from '@mantine/core';
-import { SunIcon, MoonIcon } from '@modulz/radix-icons';
+import { ActionIcon, useMantineColorScheme, useMantineTheme } from '@mantine/core';
+import { BsSun, BsMoon } from 'react-icons/bs';
 
 interface Props {
   styles?: object;
@@ -7,23 +7,22 @@ interface Props {
 
 export default function ColorSchemeToggle(props: Props) {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
+  const theme = useMantineTheme();
 
   return (
     <ActionIcon
       aria-label="Toggle color scheme"
       title="Toggle color scheme"
       onClick={() => toggleColorScheme()}
+      color={theme.primaryColor}
+      variant="outline"
       size={36}
-      sx={(theme) => ({
-        backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
-        color: theme.colorScheme === 'dark' ? theme.colors.yellow[4] : theme.colors.blue[6],
-      })}
       {...props}
     >
       {colorScheme === 'dark' ? (
-        <SunIcon width={20} height={20} />
+        <BsSun width={20} height={20} />
       ) : (
-        <MoonIcon width={20} height={20} />
+        <BsMoon width={20} height={20} />
       )}
     </ActionIcon>
   );
