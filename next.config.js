@@ -12,6 +12,6 @@ module.exports = withBundleAnalyzer({
     defaultLocale: 'en',
   },
   images: {
-    domains: ['v1.screenshot.11ty.dev'],
+    domains: ['v1.screenshot.11ty.dev', 'raw.githubusercontent.com'],
   },
 });

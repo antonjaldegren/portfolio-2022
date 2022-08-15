@@ -18,7 +18,7 @@ import ResumeButton from './ResumeButton';
 import NavLinks from './NavLinks';
 import ScrollAffix from './ScrollAffix';
 import ColorSchemeToggle from './ColorSchemeToggle';
-import { LINKS } from '../../config';
+import { LINKS, LinkKey } from '../../config';
 
 interface Props {
   children: ReactNode;
@@ -107,36 +107,23 @@ const Layout = ({ children }: Props) => {
       >
         <Stack spacing="xl">
           <Group m="auto">
-            <ActionIcon
-              component="a"
-              href={LINKS.github}
-              target="_blank"
-              color={theme.primaryColor}
-              size={48}
-              title="GitHub"
-            >
-              <BsGithub size={32} />
-            </ActionIcon>
-            <ActionIcon
-              component="a"
-              href={LINKS.linkedin}
-              target="_blank"
-              color={theme.primaryColor}
-              size={48}
-              title="LinkedIn"
-            >
-              <BsLinkedin size={32} />
-            </ActionIcon>
-            <ActionIcon
-              component="a"
-              href={LINKS.facebook}
-              target="_blank"
-              color={theme.primaryColor}
-              size={48}
-              title="Facebook"
-            >
-              <BsFacebook size={32} />
-            </ActionIcon>
+            {[
+              { icon: <BsGithub size={32} />, title: 'GitHub' },
+              { icon: <BsLinkedin size={32} />, title: 'LinkedIn' },
+              { icon: <BsFacebook size={32} />, title: 'Facebook' },
+            ].map(({ icon, title }) => (
+              <ActionIcon
+                key={`footerLinks_${title}`}
+                component="a"
+                href={LINKS[title.toLowerCase() as LinkKey]}
+                target="_blank"
+                color={theme.colorScheme === 'dark' ? 'gray' : 'dark'}
+                size={48}
+                title={title}
+              >
+                {icon}
+              </ActionIcon>
+            ))}
           </Group>
           <Text size="sm" color="dimmed">
             © {new Date().getFullYear()} Anton Jaldegren. All rights reserved.

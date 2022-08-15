@@ -25,41 +25,34 @@ const Project = ({ project, orientation }: Props) => {
   const theme = useMantineTheme();
 
   return (
-    <div style={{ position: 'relative' }}>
-      {project.img_url && (
-        <AspectRatio
-          ratio={4 / 3}
-          sx={{
-            maxWidth: '35%',
-            marginLeft: orientation === 'right' ? 'auto' : 'unset',
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: orientation === 'right' ? 'row-reverse' : 'row',
+        alignItems: 'center',
+      }}
+    >
+      <AspectRatio ratio={4 / 3} sx={{ width: '35%' }}>
+        <Image
+          alt={project.name}
+          src={project.img_url}
+          layout="fill"
+          objectFit="cover"
+          objectPosition="top"
+          style={{
+            filter: `opacity(${theme.colorScheme === 'dark' ? 0.7 : 0.9}) drop-shadow(0 0 0 ${
+              theme.colors[theme.primaryColor][6]
+            })`,
           }}
-        >
-          <Image
-            alt={project.name}
-            src={project.img_url}
-            layout="fill"
-            objectFit="cover"
-            objectPosition="top"
-            style={{
-              width: '100%',
-              filter: `opacity(${theme.colorScheme === 'dark' ? 0.7 : 0.9}) drop-shadow(0 0 0 ${
-                theme.colors[theme.primaryColor][6]
-              })`,
-            }}
-          />
-        </AspectRatio>
-      )}
+        />
+      </AspectRatio>
       <Paper
         p="md"
         shadow="sm"
         sx={{
           background: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
-          position: project.img_url ? 'absolute' : 'unset',
-          transform: project.img_url ? 'translateY(-50%)' : 'unset',
           width: '60%',
-          top: '50%',
-          right: orientation === 'left' ? '10%' : 'unset',
-          left: orientation === 'right' ? '10%' : 'unset',
+          transform: `translateX(${orientation === 'right' ? '8%' : '-8%'})`,
         }}
       >
         <Stack>
@@ -78,7 +71,7 @@ const Project = ({ project, orientation }: Props) => {
             {project.topics.length > 0 && (
               <Group mt="md">
                 {project.topics.map((topic) => (
-                  <Badge>{topic}</Badge>
+                  <Badge key={`projectTopic_${project.name}_${topic}`}>{topic}</Badge>
                 ))}
               </Group>
             )}
@@ -109,7 +102,7 @@ const Project = ({ project, orientation }: Props) => {
           )}
         </Stack>
       </Paper>
-    </div>
+    </Box>
   );
 };
 

@@ -6,8 +6,10 @@ export const LINKS = {
   github: 'https://github.com/antonjaldegren',
   facebook: 'https://www.facebook.com/anton.jaldegren',
   email: 'mailto:anton@jaldegren.dev',
+  github_repos: 'https://api.github.com/users/antonjaldegren/repos',
   resume: '',
 };
+export type LinkKey = keyof typeof LINKS;
 export const PROJECTS: Project[] = [
   {
     name: 'Signing service',
@@ -24,7 +26,8 @@ export const PROJECTS: Project[] = [
       'i18next',
       'Bitbucket',
     ],
-    img_url: '',
+    img_url:
+      'https://raw.githubusercontent.com/antonjaldegren/personal-portfolio/main/assets/exp-detail-1.jpg',
     html_url: '',
     homepage: '',
   },
