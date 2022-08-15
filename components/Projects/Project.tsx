@@ -14,10 +14,10 @@ import {
 import { IoOpenOutline } from 'react-icons/io5';
 import { BsGithub } from 'react-icons/bs';
 import Image from 'next/image';
-import { Project } from '../../types';
+import { ProjectType } from '../../types';
 
 interface Props {
-  project: Project;
+  project: ProjectType;
   orientation: string;
 }
 

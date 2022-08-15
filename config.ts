@@ -1,4 +1,4 @@
-import { Project } from './types';
+import { ProjectType } from './types';
 
 export const SECTIONS = ['home', 'about', 'projects', 'contact'];
 export const LINKS = {
@@ -10,7 +10,7 @@ export const LINKS = {
   resume: '',
 };
 export type LinkKey = keyof typeof LINKS;
-export const PROJECTS: Project[] = [
+export const PROJECTS: ProjectType[] = [
   {
     name: 'Signing service',
     company: 'TellusTalk AB',

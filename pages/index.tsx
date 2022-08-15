@@ -5,10 +5,10 @@ import Contact from '../components/Contact/Contact';
 import Projects from '../components/Projects/Projects';
 import Section from '../components/Section';
 import { LINKS } from '../config';
-import { Project } from '../types';
+import { ProjectType } from '../types';
 
 interface Props {
-  repos: Project[];
+  repos: ProjectType[];
 }
 
 const HomePage = ({ repos }: Props) => (
