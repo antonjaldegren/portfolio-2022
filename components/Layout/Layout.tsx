@@ -90,7 +90,7 @@ const Layout = ({ children }: Props) => {
       >
         <Stack>
           <Stack px="md" pt="xl">
-            <NavLinks onClick={() => setIsOpen(false)} delay />
+            <NavLinks onClick={() => setIsOpen(false)} />
           </Stack>
           <Divider />
           <Center>

@@ -1,25 +1,4 @@
-html {
-  scroll-behavior: smooth;
-}
-
-/* open-sans-latin-500-normal*/
-@font-face {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 500;
-  src: url('/files/open-sans-latin-500-normal.woff2') format('woff2');
-}
-
-/* open-sans-latin-700-normal*/
-@font-face {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 700;
-  src: url('/files/open-sans-latin-700-normal.woff2') format('woff2');
-}
-/* open-sans-latin-700-normal*/
+/* montserrat-latin-800-normal*/
 @font-face {
   font-family: 'Montserrat';
   font-style: normal;

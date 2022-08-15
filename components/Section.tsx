@@ -31,8 +31,7 @@ const Section = ({ id, children }: Props) => {
 
   return (
     <>
-      <section ref={ref} style={{ position: 'relative' }}>
-        <div id={id} style={{ position: 'absolute', top: '-65px' }} />
+      <section id={id} ref={ref} style={{ position: 'relative' }}>
         {children}
       </section>
     </>
