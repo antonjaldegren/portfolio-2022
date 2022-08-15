@@ -18,6 +18,7 @@ const ScrollAffix = () => {
             smooth
             aria-label="Scroll to top"
             title="Scroll to top"
+            role="button"
             color={theme.colorScheme === 'dark' ? 'dark' : theme.primaryColor}
             variant={theme.colorScheme === 'dark' ? 'filled' : 'light'}
             size="lg"

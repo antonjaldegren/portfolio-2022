@@ -21,6 +21,7 @@ const NavLinks = (props: Props) => {
             component={Link}
             to={section}
             duration={theme.other.scrollDuration}
+            href={`/#${section}`}
             smooth
             onClick={() => props.onClick && props.onClick()}
             variant="light"
