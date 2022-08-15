@@ -87,6 +87,7 @@ export default function App(props: AppProps) {
             other: {
               navbarHeight: 65,
               drawerTransitionDuration: 200,
+              scrollDuration: 500,
             },
           }}
           withGlobalStyles

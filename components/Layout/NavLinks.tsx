@@ -20,10 +20,9 @@ const NavLinks = (props: Props) => {
           <NavLink
             component={Link}
             to={section}
-            duration={500}
+            duration={theme.other.scrollDuration}
             smooth
             onClick={() => props.onClick && props.onClick()}
-            offset={-theme.other.navbarHeight}
             variant="light"
             label={section.charAt(0).toUpperCase() + section.slice(1)}
             active={currentSection === section}
