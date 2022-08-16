@@ -1,8 +1,9 @@
 import sendgrid from '@sendgrid/mail';
+import { NextApiRequest, NextApiResponse } from 'next';
 
 sendgrid.setApiKey(process.env.SENDGRID_API_KEY || '');
 
-async function sendEmail(req, res) {
+async function sendEmail(req: NextApiRequest, res: NextApiResponse) {
   try {
     await sendgrid.send({
       to: 'anton.jaldegren@gmail.com',
