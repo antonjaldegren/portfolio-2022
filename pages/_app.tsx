@@ -2,6 +2,7 @@ import { AppProps } from 'next/app';
 import Head from 'next/head';
 import { RecoilRoot } from 'recoil';
 import { MantineProvider, ColorScheme, ColorSchemeProvider } from '@mantine/core';
+import { NotificationsProvider } from '@mantine/notifications';
 import { useLocalStorage } from '@mantine/hooks';
 import '../public/global.css';
 
@@ -93,9 +94,11 @@ export default function App(props: AppProps) {
           withGlobalStyles
           withNormalizeCSS
         >
-          <RecoilRoot>
-            <Component {...pageProps} />
-          </RecoilRoot>
+          <NotificationsProvider>
+            <RecoilRoot>
+              <Component {...pageProps} />
+            </RecoilRoot>
+          </NotificationsProvider>
         </MantineProvider>
       </ColorSchemeProvider>
     </>
