@@ -27,7 +27,7 @@ const NavLinks = (props: Props) => {
             variant="light"
             label={section.charAt(0).toUpperCase() + section.slice(1)}
             active={currentSection === section}
-            sx={{ borderRadius: theme.radius.sm }}
+            sx={{ borderRadius: theme.radius.sm, fontWeight: 'bold' }}
           />
         </Box>
       ))}

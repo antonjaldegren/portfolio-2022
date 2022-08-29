@@ -6,10 +6,10 @@ sendgrid.setApiKey(process.env.SENDGRID_API_KEY || '');
 async function sendEmail(req: NextApiRequest, res: NextApiResponse) {
   try {
     await sendgrid.send({
-      to: 'anton.jaldegren@gmail.com',
+      to: 'anton@jaldegren.dev',
       from: 'anton.jaldegren@gmail.com',
       subject: 'jaldegren.dev | Nytt meddelande!',
-      text: `Nytt meddelande från jaldegren.dev\n\nNamn: ${req.body.name}\n\nEmail: ${req.body.email}\n\nMessage:\n${req.body.message}`,
+      text: `Nytt meddelande från jaldegren.dev\n\nNamn: ${req.body.name}\n\nEmail: ${req.body.email}\n\nMeddelande:\n${req.body.message}`,
     });
   } catch (error: any) {
     return res.status(error.statusCode || 500).json({ error: error.message });

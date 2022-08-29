@@ -14,7 +14,7 @@ export const PROJECTS: ProjectType[] = [
       'SASS',
       'Slate.js',
       'React Router',
-      'i18next',
+      'Storybook',
       'Bitbucket',
     ],
     img_url:

@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import { Modal, Text } from '@mantine/core';
 import Layout from '../components/Layout/Layout';
 import Home from '../components/Home/Home';
 import About from '../components/About';
@@ -11,22 +13,38 @@ interface Props {
   projects: ProjectType[];
 }
 
-const HomePage = ({ repos, projects }: Props) => (
-  <Layout>
-    <Section id="home">
-      <Home />
-    </Section>
-    <Section id="about">
-      <About />
-    </Section>
-    <Section id="projects">
-      <Projects repos={repos} projects={projects} />
-    </Section>
-    <Section id="contact">
-      <Contact />
-    </Section>
-  </Layout>
-);
+const HomePage = ({ repos, projects }: Props) => {
+  const [opened, setOpened] = useState(true);
+
+  return (
+    <Layout>
+      <Modal
+        centered
+        opened={opened}
+        overlayBlur={3}
+        onClose={() => setOpened(false)}
+        title="Welcome to jaldegren.dev!"
+      >
+        <Text>
+          This website is currently under construction, but please feel free to browse around.
+        </Text>
+        <Text>Come back soon for the final version! 😃</Text>
+      </Modal>
+      <Section id="home">
+        <Home />
+      </Section>
+      <Section id="about">
+        <About />
+      </Section>
+      <Section id="projects">
+        <Projects repos={repos} projects={projects} />
+      </Section>
+      <Section id="contact">
+        <Contact />
+      </Section>
+    </Layout>
+  );
+};
 
 export async function getServerSideProps() {
   const reposResponse = await fetch(LINKS.github_repos);

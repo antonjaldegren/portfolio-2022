@@ -47,7 +47,7 @@ const Layout = ({ children }: Props) => {
           position: 'sticky',
           backdropFilter: 'blur(2px)',
           top: 0,
-          zIndex: 999,
+          zIndex: 200,
         }}
         px="lg"
       >
