@@ -5,7 +5,7 @@ export const LINKS = {
   facebook: 'https://www.facebook.com/anton.jaldegren',
   email: 'mailto:anton@jaldegren.dev',
   github_repos: 'https://api.github.com/users/antonjaldegren/repos',
-  resume: 'https://drive.google.com/file/d/1Ck78DVMeICxWOJKpQuIKexwd4G1QVBKu/view?usp=sharing',
+  resume: 'https://drive.google.com/file/d/1-p3YCURPrCl0q9H2Hccd4w5xSwO2JQZ8/view?usp=sharing',
 };
 export type LinkKey = keyof typeof LINKS;
 export type ProjectType = {
